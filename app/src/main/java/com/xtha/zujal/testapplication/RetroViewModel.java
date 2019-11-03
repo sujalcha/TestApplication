@@ -3,7 +3,6 @@ package com.xtha.zujal.testapplication;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-
 import com.xtha.zujal.testapplication.Model.UserInfo;
 
 import java.util.ArrayList;

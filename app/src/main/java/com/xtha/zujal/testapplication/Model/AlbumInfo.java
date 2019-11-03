@@ -8,6 +8,9 @@ public class AlbumInfo {
     private String url;
     private String thumbnailUrl;
 
+    public AlbumInfo() {
+    }
+
     public AlbumInfo(int albumid, int id, String title, String url, String thumbnailUrl) {
         this.albumid = albumid;
         this.id = id;

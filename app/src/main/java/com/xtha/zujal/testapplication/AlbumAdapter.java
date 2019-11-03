@@ -6,33 +6,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-//import com.xtha.zujal.sampletest.Album;
-//import com.xtha.zujal.sampletest.Model.UserInfo;
-import com.xtha.zujal.testapplication.Model.UserInfo;
+import com.squareup.picasso.Picasso;
+import com.xtha.zujal.testapplication.Model.AlbumInfo;
 
 import java.util.ArrayList;
 
-public class UserAdapter extends BaseAdapter {
+public class AlbumAdapter extends BaseAdapter {
 
     private Context context;
-    ArrayList<UserInfo> tDlist;
+    ArrayList<AlbumInfo> tDlist;
 
-    public UserAdapter(Context context, ArrayList<UserInfo> tDlist)
+    public AlbumAdapter(Context context, ArrayList<AlbumInfo> tDlist)
     {
         this.context=context;
         this.tDlist=tDlist;
     }
 
     static class ViewHolder {
-        TextView userid;
-        TextView username;
-        TextView useremail;
-        TextView userphone;
+        TextView imagetitle;
+        ImageView imageview;
         LinearLayout linearLayout;
-
     }
 
     @Override
@@ -53,14 +50,12 @@ public class UserAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-
         final ViewHolder holder;
-        View v;
 
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(context);
-            convertView = inflater.inflate(R.layout.gridviewlayout, parent, false);
+            convertView = inflater.inflate(R.layout.albumtile, parent, false);
             convertView.setTag(holder);
 
         }
@@ -68,30 +63,38 @@ public class UserAdapter extends BaseAdapter {
             holder = (ViewHolder)convertView.getTag();
         }
 
-
-        holder.userid = (TextView)convertView.findViewById(R.id.userid);
-        holder.username= (TextView)convertView.findViewById(R.id.username);
-        holder.useremail= (TextView)convertView.findViewById(R.id.useremail);
-        holder.userphone= (TextView)convertView.findViewById(R.id.userphone);
+        holder.imagetitle = (TextView)convertView.findViewById(R.id.imagetitle);
+        holder.imageview = (ImageView) convertView.findViewById(R.id.imageview);
         holder.linearLayout = (LinearLayout)convertView.findViewById(R.id.userlayout);
+
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent= new Intent(context, Album.class);
-                intent.putExtra("userid",tDlist.get(position).getUserid());
+                Intent intent= new Intent(context, ImageDetails.class);
+                intent.putExtra("imageurl",tDlist.get(position).getUrl());
+                intent.putExtra("imagetitle",tDlist.get(position).getTitle());
+                intent.putExtra("imagealbumid",String.valueOf(tDlist.get(position).getAlbumid()));
+                intent.putExtra("imagephotoid",String.valueOf(tDlist.get(position).getId()));
                 context.startActivity(intent);
+
             }
-            });
+        });
+
 
         for (int i=0; i<tDlist.size();i++) {
-            holder.userid.setText(String.valueOf(tDlist.get(position).getUserid()));
-            holder.username.setText(tDlist.get(position).getUsername());
-            holder.useremail.setText(tDlist.get(position).getUseremail());
-            holder.userphone.setText(tDlist.get(position).getUsernumber());
+           // new ImageTask(holder.imageview).execute(tDlist.get(position).getThumbnailUrl());
+
+            Picasso.get().load(tDlist.get(position).getThumbnailUrl()).into(holder.imageview);
+            holder.imagetitle.setText(tDlist.get(position).getTitle());
         }
 
         return convertView;
     }
+
+
+
+
+
 }
