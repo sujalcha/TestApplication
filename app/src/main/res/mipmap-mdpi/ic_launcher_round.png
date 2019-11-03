@@ -1,0 +1,84 @@
+package com.xtha.zujal.sampletest.ViewModels;
+
+import android.app.Application;
+import android.arch.lifecycle.AndroidViewModel;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.ViewModel;
+import android.support.annotation.NonNull;
+import android.util.Log;
+import com.xtha.zujal.sampletest.*;
+import com.xtha.zujal.sampletest.Model.UserInfo;
+
+import java.util.ArrayList;
+
+public class ViewModelMainActivity extends AndroidViewModel implements GetInfoCallback {
+
+    public ViewModelMainActivity(@NonNull Application application) {
+        super(application);
+    }
+
+    private MutableLiveData<ArrayList<UserInfo>> users;
+
+
+
+    public LiveData<ArrayList<UserInfo>> getUsers() {
+        if (users == null) {
+            users = new MutableLiveData<ArrayList<UserInfo>>();
+            loadUsers();
+        }
+        return users;
+    }
+
+    private void loadUsers() {
+
+//        mRepository.getInfo(this, itemId);
+//
+//        MyAsyncTask asyncTask = (MyAsyncTask) new MyAsyncTask(new GetInfoCallback(){
+//
+//            @Override
+//            public void processingFinish(String output){
+//                Log.i("Üsering",output);
+//            }
+//        }).execute("getusers");
+
+
+//        users = UserTask( UserTask.AsyncResponse object  {
+//            override fun processFinish(output: String) {
+//                //Here you will receive the result fired from async class
+//                //of onPostExecute(result) method.
+//                stin = output
+//                User = ArrayList<UserInfo>()
+//
+//                try {
+//                    val jArray = JSONArray(output)
+//
+//                    for (i in 0 until jArray.length()) {
+//
+//                        val jObject = jArray.getJSONObject(i)
+//
+//                        val id = jObject.getInt("id")
+//                        val name = jObject.getString("name")
+//                        val email = jObject.getString("email")
+//                        val phonenumber = jObject.getString("phone")
+//
+//                        val userInfo = UserInfo(id, name, email, phonenumber)
+//                        User.add(userInfo)
+//
+//                        Haude = User
+//                    } // End Loop
+//
+//                } catch (e: JSONException) {
+//                    Log.e("JSONException", "Error: $e")
+//                }
+//                // catch (JSONException e)
+//            }
+//        },getApplication().getApplicationContext()).execute("getusers");
+//        // Do an asynchronous operation to fetch users.
+    }
+
+
+    private ObservableInfoModel mInfo;
+    public ObservableInfoModel getInfo() {
+        if (mInfo == null) {
+       

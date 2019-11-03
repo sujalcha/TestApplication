@@ -1,0 +1,63 @@
+package com.xtha.zujal.sampletest.ViewModels;
+
+import android.app.Application;
+import android.arch.lifecycle.AndroidViewModel;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.util.Log;
+import com.xtha.zujal.sampletest.*;
+import com.xtha.zujal.sampletest.Model.UserInfo;
+
+import java.util.ArrayList;
+
+public class ViewModelMainActivity extends AndroidViewModel implements GetInfoCallback {
+
+
+
+    Context context;
+    public ViewModelMainActivity(Context context) {
+        context.this = context;
+    }
+    private MutableLiveData<ArrayList<UserInfo>> users;
+
+    public LiveData<ArrayList<UserInfo>> getUsers() {
+        if (users == null) {
+            users = new MutableLiveData<ArrayList<UserInfo>>();
+            loadUsers();
+        }
+        return users;
+    }
+
+    private void loadUsers() {
+
+//        mRepository.getInfo(this, itemId);
+//
+//        MyAsyncTask asyncTask = (MyAsyncTask) new MyAsyncTask(new GetInfoCallback(){
+//
+//            @Override
+//            public void processingFinish(String output){
+//                Log.i("Üsering",output);
+//            }
+//        }).execute("getusers");
+
+
+//        users = UserTask( UserTask.AsyncResponse object  {
+//            override fun processFinish(output: String) {
+//                //Here you will receive the result fired from async class
+//                //of onPostExecute(result) method.
+//                stin = output
+//                User = ArrayList<UserInfo>()
+//
+//                try {
+//                    val jArray = JSONArray(output)
+//
+//                    for (i in 0 until jArray.length()) {
+//
+//                        val jObject = jArray.getJSONObject(i)
+//
+//                        val id = jObject.getInt("id")
+//                        val name = jObject.getString("name")
+//                        val email = jObject.getString("email")
+//                       
