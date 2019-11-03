@@ -21,8 +21,8 @@ public class AlbumViewModel extends AndroidViewModel {
 
        // int sessionId = getIntent().getIntExtra("userid",0);
 
-       // Log.d("sessionid",String.valueOf(album.sessionId));
-        retroObservable = albumRepository.providealbumlist(5);
+        Log.d("sessionid",String.valueOf(album.sessionId));
+        retroObservable = albumRepository.providealbumlist(album.sessionId);
     }
 
     public LiveData<ArrayList<AlbumInfo>> getProjectRetroListObservable() {

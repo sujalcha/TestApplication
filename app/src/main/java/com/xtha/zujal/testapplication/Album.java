@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ public class Album extends AppCompatActivity {
     private AlbumAdapter adapter;
     public AlbumViewModel albumViewModel;
     ListView listview;
-    public int sessionId;
+    static public int sessionId;
 
 
     @Override
@@ -33,13 +34,16 @@ public class Album extends AppCompatActivity {
 
 
         albumViewModel = ViewModelProviders.of(this).get(AlbumViewModel.class);
+
         albumViewModel.getProjectRetroListObservable().observe(this, new Observer<ArrayList<AlbumInfo>>() {
             @Override
             public void onChanged(@Nullable final ArrayList<AlbumInfo> albumlist) {
 
                 adapter= new AlbumAdapter(Album.this,albumlist);
                 listview.setAdapter(adapter);
-              //  albumid.setText(albumlist);
+
+                Log.d("albumid",String.valueOf(albumlist.get(0).getAlbumid()));
+                albumid.setText(String.valueOf(albumlist.get(0).getAlbumid()));
             }
         });
 
