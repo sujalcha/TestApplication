@@ -1,10 +1,12 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.Repositories;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 
+import com.xtha.zujal.testapplication.URLS.UserService;
+import com.xtha.zujal.testapplication.URLS.APIUrl;
 import com.xtha.zujal.testapplication.Model.UserInfo;
 
 import org.json.JSONArray;
@@ -12,7 +14,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -23,7 +24,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class WebServiceRepository {
+public class UserRepository {
 
     Application application;
     private static OkHttpClient providesOkHttpClientBuilder(){
@@ -49,7 +50,7 @@ public class WebServiceRepository {
 
             Log.i("APIUrl.BASE_URL",APIUrl.BASE_URL);
             //Defining retrofit api service
-            APIService service = retrofit.create(APIService.class);
+            UserService service = retrofit.create(UserService.class);
             Log.d("Service",service.toString());
             //  response = service.makeRequest().execute().body();
             service.makeRequest().enqueue(new Callback<String>() {

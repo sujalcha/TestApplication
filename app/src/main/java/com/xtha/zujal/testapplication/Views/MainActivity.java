@@ -1,4 +1,4 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.Views;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.xtha.zujal.testapplication.Adapters.UserAdapter;
 import com.xtha.zujal.testapplication.Model.UserInfo;
+import com.xtha.zujal.testapplication.R;
+import com.xtha.zujal.testapplication.ViewModels.UserViewModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RetroViewModel retroViewModel;
+        UserViewModel retroViewModel;
 
         listview = findViewById(R.id.userlistview);
 
-        retroViewModel = ViewModelProviders.of(this).get(RetroViewModel.class);
+        retroViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         retroViewModel.getProjectRetroListObservable().observe(this, new Observer<ArrayList<UserInfo>>() {
             @Override
             public void onChanged(@Nullable final ArrayList<UserInfo> users) {

@@ -1,20 +1,21 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.ViewModels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import com.xtha.zujal.testapplication.Model.UserInfo;
+import com.xtha.zujal.testapplication.Repositories.UserRepository;
 
 import java.util.ArrayList;
 
-public class RetroViewModel extends AndroidViewModel {
+public class UserViewModel extends AndroidViewModel {
 
     private final LiveData<ArrayList<UserInfo>> retroObservable;
-    WebServiceRepository webServiceRepository ;
+    UserRepository webServiceRepository ;
 
-    public RetroViewModel(Application application){
+    public UserViewModel(Application application){
         super(application);
-        webServiceRepository = new WebServiceRepository();
+        webServiceRepository = new UserRepository();
         retroObservable = webServiceRepository.providesWebService();
     }
 

@@ -1,4 +1,4 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.xtha.zujal.testapplication.Views.ImageDetails;
 import com.xtha.zujal.testapplication.Model.AlbumInfo;
+import com.xtha.zujal.testapplication.R;
 
 import java.util.ArrayList;
 

@@ -1,9 +1,12 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.Views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.xtha.zujal.testapplication.ImageTask;
+import com.xtha.zujal.testapplication.R;
 
 public class ImageDetails extends AppCompatActivity {
 

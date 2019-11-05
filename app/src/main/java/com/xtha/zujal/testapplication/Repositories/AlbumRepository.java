@@ -1,12 +1,13 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.Repositories;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 
+import com.xtha.zujal.testapplication.URLS.APIUrl;
+import com.xtha.zujal.testapplication.URLS.AlbumService;
 import com.xtha.zujal.testapplication.Model.AlbumInfo;
-import com.xtha.zujal.testapplication.Model.UserInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;

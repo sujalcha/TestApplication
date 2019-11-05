@@ -1,4 +1,4 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.Views;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -9,8 +9,10 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.xtha.zujal.testapplication.Adapters.AlbumAdapter;
+import com.xtha.zujal.testapplication.ViewModels.AlbumViewModel;
 import com.xtha.zujal.testapplication.Model.AlbumInfo;
-import com.xtha.zujal.testapplication.Model.UserInfo;
+import com.xtha.zujal.testapplication.R;
 
 import java.util.ArrayList;
 

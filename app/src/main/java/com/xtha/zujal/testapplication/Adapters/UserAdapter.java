@@ -1,4 +1,4 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,9 @@ import android.widget.TextView;
 
 //import com.xtha.zujal.sampletest.Album;
 //import com.xtha.zujal.sampletest.Model.UserInfo;
+import com.xtha.zujal.testapplication.Views.Album;
 import com.xtha.zujal.testapplication.Model.UserInfo;
+import com.xtha.zujal.testapplication.R;
 
 import java.util.ArrayList;
 

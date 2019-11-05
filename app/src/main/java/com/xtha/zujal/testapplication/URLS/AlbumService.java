@@ -1,4 +1,4 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.URLS;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

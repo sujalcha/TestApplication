@@ -1,4 +1,4 @@
-package com.xtha.zujal.testapplication;
+package com.xtha.zujal.testapplication.ViewModels;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
@@ -6,6 +6,8 @@ import android.arch.lifecycle.LiveData;
 import android.util.Log;
 
 import com.xtha.zujal.testapplication.Model.AlbumInfo;
+import com.xtha.zujal.testapplication.Repositories.AlbumRepository;
+import com.xtha.zujal.testapplication.Views.Album;
 
 import java.util.ArrayList;
 
